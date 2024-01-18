@@ -4,9 +4,10 @@ import { useParams } from "react-router-dom";
 import "./style.scss";
 import { fetchDataFromApi } from "../../utils/api";
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
-import noResults from "../../assets/no-results.png";
+import NoResults from "../../assets/no-results.png"
 import Spinner from "../../components/spinner/Spinner";
 import MovieCard from "../../components/movieCard/MovieCard";
+import Img from "../../components/lazyLoadImage/Img";
 
 const SearchResult = () => {
   const [data, setData] = useState(null);
@@ -73,7 +74,11 @@ const SearchResult = () => {
               </InfiniteScroll>
             </>
           ) : (
-            <span className="resultNotFound">Sorry, Results not found!</span>
+            <><span className="resultNotFound">Sorry, Results not found!</span>
+            <div style={{textAlign:'center'}}>
+              <Img className="noResultsImg" src={NoResults} />
+            </div>
+            </>
           )}
         </ContentWrapper>
       )}

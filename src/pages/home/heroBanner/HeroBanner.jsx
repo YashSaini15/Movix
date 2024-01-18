@@ -26,7 +26,7 @@ const HeroBanner = () => {
     }
   };
 
-  const searchQueryClick = (event) =>{
+  const searchQueryClick = () =>{
     if(query.length > 0){
       navigate(`/search/${query}`);
     }
